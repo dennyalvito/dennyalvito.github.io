@@ -1,4 +1,4 @@
-import type { HoverHandlers } from '../types/portfolio';
+import type { HoverHandlers } from '../types/portfolio'
 
 export function Footer({ onEnter, onLeave }: HoverHandlers) {
   return (
@@ -13,5 +13,5 @@ export function Footer({ onEnter, onLeave }: HoverHandlers) {
         </a>
       </div>
     </footer>
-  );
+  )
 }

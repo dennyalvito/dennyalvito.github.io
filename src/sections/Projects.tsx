@@ -1,14 +1,13 @@
-import { projects } from '../data/portfolio'
-import type { HoverHandlers, Project } from '../types/portfolio'
+import { projects } from '../data/portfolio';
+import type { HoverHandlers, Project } from '../types/portfolio';
 
 interface ProjectCardProps extends HoverHandlers {
-  project: Project
+  project: Project;
 }
 
 function ProjectCard({ project, onEnter, onLeave }: ProjectCardProps) {
   return (
     <a
-      href="#"
       className={`project-card reveal ${project.featured ? 'featured' : ''}`}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
@@ -27,7 +26,10 @@ function ProjectCard({ project, onEnter, onLeave }: ProjectCardProps) {
                 <div
                   key={index}
                   className="vis-bar"
-                  style={{ height: bar.height + 'px', animationDelay: bar.delay + 's' }}
+                  style={{
+                    height: bar.height + 'px',
+                    animationDelay: bar.delay + 's',
+                  }}
                 />
               ))}
             </div>
@@ -40,11 +42,10 @@ function ProjectCard({ project, onEnter, onLeave }: ProjectCardProps) {
           <h3>{project.title}</h3>
           <p>{project.description}</p>
           <ProjectStack stack={project.stack} />
-          <div className="project-arrow">→</div>
         </>
       )}
     </a>
-  )
+  );
 }
 
 function ProjectMeta({ project }: { project: Project }) {
@@ -53,7 +54,7 @@ function ProjectMeta({ project }: { project: Project }) {
       <span className="project-year">{project.year}</span>
       <span className="project-type">{project.type}</span>
     </div>
-  )
+  );
 }
 
 function ProjectStack({ stack }: { stack: string[] }) {
@@ -65,7 +66,7 @@ function ProjectStack({ stack }: { stack: string[] }) {
         </span>
       ))}
     </div>
-  )
+  );
 }
 
 export function Projects({ onEnter, onLeave }: HoverHandlers) {
@@ -79,7 +80,7 @@ export function Projects({ onEnter, onLeave }: HoverHandlers) {
           <h2>
             Selected
             <br />
-            <em>work.</em>
+            <em>contributions.</em>
           </h2>
         </div>
         <div className="projects-grid">
@@ -94,5 +95,5 @@ export function Projects({ onEnter, onLeave }: HoverHandlers) {
         </div>
       </div>
     </section>
-  )
+  );
 }

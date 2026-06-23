@@ -13,7 +13,7 @@ export interface Experience {
   dates: string
   role: string
   company: string
-  description: string
+  highlights: string[]
 }
 
 export interface SkillGroup {

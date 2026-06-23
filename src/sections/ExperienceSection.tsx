@@ -27,7 +27,11 @@ export function ExperienceSection({ onEnter, onLeave }: HoverHandlers) {
               <div className="timeline-date">{experience.dates}</div>
               <div className="timeline-role">{experience.role}</div>
               <div className="timeline-company">{experience.company}</div>
-              <div className="timeline-desc">{experience.description}</div>
+              <ul className="timeline-highlights">
+                {experience.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
