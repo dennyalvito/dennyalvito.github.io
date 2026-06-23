@@ -81,7 +81,7 @@ export const contactLinks: ContactLink[] = [
     label: 'dennyalvitoginting@gmail.com',
     type: 'Email',
   },
-  { href: 'https://github.com/DnYAlv', icon: '◎', label: 'github.com/DnYAlv', type: 'GitHub' },
+  { href: 'https://github.com/dennyalvito', icon: '◎', label: 'github.com/dennyalvito', type: 'GitHub' },
   {
     href: 'https://www.linkedin.com/in/dennyalvito',
     icon: '◉',
