@@ -6,7 +6,7 @@ export function Hero({ onEnter, onLeave }: HoverHandlers) {
       <div className="hero-grid-bg" />
 
       <div className="hero-left hero-stagger" style={{ paddingLeft: '40px' }}>
-        <div className="hero-tag">Available for work</div>
+        <div className="hero-tag">Your fellow engineer</div>
         <h1>
           Denny Alvito
           <br />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { navLinks } from '../data/portfolio';
 import type { HoverHandlers } from '../types/portfolio';
@@ -16,6 +16,20 @@ export function Navbar({
 }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+    const closeOnDesktop = () => {
+      if (mediaQuery.matches) {
+        setMenuOpen(false);
+      }
+    };
+
+    closeOnDesktop();
+    mediaQuery.addEventListener('change', closeOnDesktop);
+
+    return () => mediaQuery.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   return (
     <>
