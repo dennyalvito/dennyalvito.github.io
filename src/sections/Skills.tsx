@@ -1,35 +1,25 @@
-import { skillGroups } from '../data/portfolio';
-import type { HoverHandlers } from '../types/portfolio';
+import { skillGroups } from '../data/portfolio'
 
-export function Skills({ onEnter, onLeave }: HoverHandlers) {
+export function Skills() {
   return (
-    <section id="skills" className="section border-t border-[#222]">
+    <section
+      id="skills"
+      className="skills-section"
+      aria-labelledby="skills-title"
+    >
       <div className="container">
-        <div className="section-label">
-          <span>02</span> Skills &amp; Stack
+        <div className="skills-heading">
+          <h2 id="skills-title">My working toolkit</h2>
+          <span className="eyebrow">THE RIGHT TOOL FOR THE IDEA.</span>
         </div>
-        <div className="skills-header reveal">
-          <h2>
-            Tools of
-            <br />
-            <em>the trade.</em>
-          </h2>
-        </div>
-        <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <div
-              key={group.title}
-              className="skill-group reveal"
-              onMouseEnter={onEnter}
-              onMouseLeave={onLeave}
-            >
+        <div className="skills-list">
+          {skillGroups.map((group, index) => (
+            <div className="skill-row" key={group.title}>
+              <span className="skill-index">0{index + 1}</span>
               <h3>{group.title}</h3>
-              <p>{group.desc}</p>
-              <div className="skill-tags">
+              <div className="skill-tools">
                 {group.tags.map((tag) => (
-                  <span key={tag} className="tag">
-                    {tag}
-                  </span>
+                  <span key={tag}>{tag}</span>
                 ))}
               </div>
             </div>
@@ -37,5 +27,5 @@ export function Skills({ onEnter, onLeave }: HoverHandlers) {
         </div>
       </div>
     </section>
-  );
+  )
 }

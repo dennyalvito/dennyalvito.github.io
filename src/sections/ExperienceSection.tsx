@@ -1,39 +1,45 @@
 import { experiences } from '../data/portfolio'
-import type { HoverHandlers } from '../types/portfolio'
 
-export function ExperienceSection({ onEnter, onLeave }: HoverHandlers) {
+export function ExperienceSection() {
   return (
-    <section id="experience" className="section border-t border-[#222]">
+    <section
+      id="experience"
+      className="section experience-section"
+      aria-labelledby="experience-title"
+    >
       <div className="container">
-        <div className="section-label">
-          <span>04</span> Experience
+        <div className="section-topline">
+          <span className="eyebrow">03 / EXPERIENCE</span>
+          <span className="eyebrow">LEARNING BY BUILDING.</span>
         </div>
-        <div style={{ marginBottom: '60px' }} className="reveal">
-          <h2>
-            Where I've
+        <div className="experience-layout">
+          <h2 id="experience-title" className="reveal">
+            Part of
             <br />
-            <em>been.</em>
+            something <span className="serif-word">bigger.</span>
           </h2>
-        </div>
-        <div className="timeline">
-          {experiences.map((experience) => (
-            <div
-              key={experience.company}
-              className="timeline-item"
-              onMouseEnter={onEnter}
-              onMouseLeave={onLeave}
-            >
-              <div className="timeline-dot" />
-              <div className="timeline-date">{experience.dates}</div>
-              <div className="timeline-role">{experience.role}</div>
-              <div className="timeline-company">{experience.company}</div>
-              <ul className="timeline-highlights">
-                {experience.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            {experiences.map((experience) => (
+              <article
+                className="experience-entry reveal"
+                key={experience.company}
+              >
+                <div className="experience-date">
+                  <span className="availability">
+                    <i /> {experience.dates}
+                  </span>
+                  <span>01</span>
+                </div>
+                <h3>{experience.role}</h3>
+                <p className="experience-company">{experience.company}</p>
+                <ul>
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

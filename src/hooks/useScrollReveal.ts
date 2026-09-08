@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 export function useScrollReveal() {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -14,8 +15,16 @@ export function useScrollReveal() {
       { threshold: 0.12 },
     )
 
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element))
+    document.querySelectorAll('.reveal').forEach((element) => {
+      element.classList.add('reveal-pending')
+      observer.observe(element)
+    })
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      document
+        .querySelectorAll('.reveal-pending')
+        .forEach((element) => element.classList.remove('reveal-pending'))
+    }
   }, [])
 }
