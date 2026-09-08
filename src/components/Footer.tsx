@@ -1,17 +1,9 @@
-import type { HoverHandlers } from '../types/portfolio'
-
-export function Footer({ onEnter, onLeave }: HoverHandlers) {
+export function Footer() {
   return (
-    <footer className="footer">
-      <p>© 2026 Denny Alvito Ginting. Designed &amp; built with care.</p>
-      <div className="footer-right">
-        <a href="#hero" onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Back to top ↑
-        </a>
-        <a href="#" onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Resume ↓
-        </a>
-      </div>
+    <footer className="footer container">
+      <p>© {new Date().getFullYear()} DENNY ALVITO GINTING</p>
+      <span>ALWAYS A WORK IN PROGRESS.</span>
+      <a href="#hero">BACK TO TOP ↑</a>
     </footer>
   )
 }

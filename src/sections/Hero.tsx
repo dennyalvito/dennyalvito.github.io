@@ -1,82 +1,62 @@
-import type { HoverHandlers } from '../types/portfolio';
+import { HeroArtwork } from '../components/HeroArtwork'
 
-export function Hero({ onEnter, onLeave }: HoverHandlers) {
+export function Hero() {
   return (
-    <section id="hero" className="hero-section">
-      <div className="hero-grid-bg" />
-
-      <div className="hero-left hero-stagger" style={{ paddingLeft: '40px' }}>
-        <div className="hero-tag">Your fellow engineer</div>
-        <h1>
-          Denny Alvito
-          <br />
-          <em>Ginting</em>
-          <br />
-          builds things.
-        </h1>
-        <p className="hero-desc">
-          Software Engineer crafting scalable systems and interfaces. Passionate
-          about clean architecture, developer experience, and the details that
-          make software feel alive.
-        </p>
-        <div className="hero-cta">
-          <a
-            href="#projects"
-            className="btn"
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
-          >
-            View Work ↓
-          </a>
-          <a
-            href="#contact"
-            className="btn btn-ghost"
-            onMouseEnter={onEnter}
-            onMouseLeave={onLeave}
-          >
-            Get in Touch
-          </a>
+    <section
+      id="hero"
+      className="hero-section container"
+      aria-labelledby="hero-title"
+    >
+      <div className="hero-topline">
+        <span className="availability">
+          <i /> OPEN TO OPPORTUNITIES
+        </span>
+        <span>PORTFOLIO / 2026</span>
+      </div>
+      <div className="hero-layout">
+        <div className="hero-copy">
+          <p className="eyebrow hero-intro">
+            Hi, I’m Denny. An engineer who cares how it feels.
+          </p>
+          <h1 id="hero-title">
+            Serious code.
+            <br />
+            <span>Playful</span>
+            <br />
+            <span className="hero-last-line">
+              possibilities<span className="hero-period">.</span>
+            </span>
+          </h1>
+          <p className="hero-desc">
+            I build interfaces, untangle systems, and follow the occasional
+            “what if.” Currently engineering at Samsung R&amp;D Indonesia.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-light" href="#projects">
+              Explore my work <span aria-hidden="true">↘</span>
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/dennyalvito"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div className="hero-art">
+          <HeroArtwork />
         </div>
       </div>
-
-      <div className="hero-right" style={{ paddingRight: '40px' }}>
-        <div
-          className="hero-card"
-          onMouseEnter={onEnter}
-          onMouseLeave={onLeave}
-        >
-          <div className="card-header">
-            <div className="dot red" />
-            <div className="dot yellow" />
-            <div className="dot green" />
-            <span className="card-title">portfolio.ts</span>
-          </div>
-          <div className="code-line">
-            <span className="cm">// Software Engineer</span>
-          </div>
-          <div className="code-line">
-            <span className="kw">const</span> denny = {'{'}
-          </div>
-          <div className="code-line" style={{ paddingLeft: '16px' }}>
-            name: <span className="str">"Denny Alvito Ginting"</span>,
-          </div>
-          <div className="code-line" style={{ paddingLeft: '16px' }}>
-            role: <span className="str">"Software Engineer"</span>,
-          </div>
-          <div className="code-line" style={{ paddingLeft: '16px' }}>
-            exp: <span className="str">"2 years"</span>,
-          </div>
-          <div className="code-line" style={{ paddingLeft: '16px' }}>
-            open: <span className="kw">true</span>,
-          </div>
-          <div className="code-line">{'};'}</div>
-          <div className="code-line">&nbsp;</div>
-          <div className="code-line">
-            <span className="fn">hire</span>(denny);{' '}
-            <span className="cursor-blink" />
-          </div>
-        </div>
+      <div className="hero-bottom">
+        <span>
+          FRONTEND DEVELOPMENT &nbsp; / &nbsp; SYSTEMS &nbsp; / &nbsp; AI
+        </span>
+        <a href="#projects">
+          A little further down <span aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
-  );
+  )
 }
